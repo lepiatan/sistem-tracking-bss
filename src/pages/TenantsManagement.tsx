@@ -1,9 +1,10 @@
 import { DashboardLayout } from "@/components/DashboardLayout";
-import { Button } from "@/components/ui/button";
+import { CreateTenantDialog } from "@/components/CreateTenantDialog";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Search, MoreVertical, Edit, Trash2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Search, MoreVertical, Edit, Trash2 } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -58,10 +59,7 @@ const TenantsManagement = () => {
             <h1 className="text-3xl font-bold text-foreground mb-2">Manajemen Tenant</h1>
             <p className="text-muted-foreground">Kelola semua tenant dalam sistem</p>
           </div>
-          <Button className="gap-2">
-            <Plus className="w-4 h-4" />
-            Buat Tenant Baru
-          </Button>
+          <CreateTenantDialog />
         </div>
 
         <Card className="p-6">
