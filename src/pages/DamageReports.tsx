@@ -1,9 +1,18 @@
+import { useState } from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
-import { Button } from "@/components/ui/button";
+import { CreateDamageReportDialog } from "@/components/CreateDamageReportDialog";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Search, Filter, MoreVertical } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Search, Filter, MoreVertical } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Table,
   TableBody,
@@ -20,6 +29,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const DamageReports = () => {
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [severityFilter, setSeverityFilter] = useState("all");
+
   const reports = [
     { 
       id: 1,
@@ -63,10 +75,7 @@ const DamageReports = () => {
             <h1 className="text-3xl font-bold text-foreground mb-2">Laporan Kerusakan</h1>
             <p className="text-muted-foreground">Kelola laporan kerusakan aset</p>
           </div>
-          <Button className="gap-2">
-            <Plus className="w-4 h-4" />
-            Buat Laporan Baru
-          </Button>
+          <CreateDamageReportDialog />
         </div>
 
         <Card className="p-6">
@@ -78,10 +87,29 @@ const DamageReports = () => {
                 className="pl-10"
               />
             </div>
-            <Button variant="outline" className="gap-2">
-              <Filter className="w-4 h-4" />
-              Filter
-            </Button>
+            <Select value={statusFilter} onValueChange={setStatusFilter}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Filter Status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Semua Status</SelectItem>
+                <SelectItem value="reported">Dilaporkan</SelectItem>
+                <SelectItem value="in_progress">Dalam Proses</SelectItem>
+                <SelectItem value="resolved">Selesai</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select value={severityFilter} onValueChange={setSeverityFilter}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Filter Keparahan" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Semua Tingkat</SelectItem>
+                <SelectItem value="low">Rendah</SelectItem>
+                <SelectItem value="medium">Sedang</SelectItem>
+                <SelectItem value="high">Tinggi</SelectItem>
+                <SelectItem value="critical">Kritis</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           <Table>

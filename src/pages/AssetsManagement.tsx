@@ -1,9 +1,10 @@
 import { DashboardLayout } from "@/components/DashboardLayout";
-import { Button } from "@/components/ui/button";
+import { CreateAssetDialog } from "@/components/CreateAssetDialog";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Search, Filter, MoreVertical, Edit, Trash2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Search, Filter, MoreVertical, Edit, Trash2 } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -63,10 +64,7 @@ const AssetsManagement = () => {
             <h1 className="text-3xl font-bold text-foreground mb-2">Manajemen Aset</h1>
             <p className="text-muted-foreground">Kelola semua aset perusahaan Anda</p>
           </div>
-          <Button className="gap-2">
-            <Plus className="w-4 h-4" />
-            Tambah Aset Baru
-          </Button>
+          <CreateAssetDialog />
         </div>
 
         <Card className="p-6">
