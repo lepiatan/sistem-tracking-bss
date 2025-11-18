@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Search, MoreVertical, Key } from "lucide-react";
+import { Search, MoreVertical, Key } from "lucide-react";
+import { CreateUserDialog } from "@/components/CreateUserDialog";
 import {
   Table,
   TableBody,
@@ -66,10 +67,7 @@ const UsersManagement = () => {
             <h1 className="text-3xl font-bold text-foreground mb-2">Manajemen Pengguna</h1>
             <p className="text-muted-foreground">Kelola pengguna dalam organisasi Anda</p>
           </div>
-          <Button className="gap-2">
-            <Plus className="w-4 h-4" />
-            Tambah Pengguna
-          </Button>
+          <CreateUserDialog />
         </div>
 
         <Card className="p-6">
