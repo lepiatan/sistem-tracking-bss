@@ -60,6 +60,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        navPanel: {
+          DEFAULT: "hsl(var(--nav-panel-background))",
+          foreground: "hsl(var(--nav-panel-foreground))",
+          hover: "hsl(var(--nav-panel-hover))",
+        },
         success: {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",

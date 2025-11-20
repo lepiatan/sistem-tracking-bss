@@ -8,57 +8,61 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 216 28% 97%;
-    --foreground: 222 47% 11%;
+    --background: 0 0% 98%;
+    --foreground: 0 0% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 0 0% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 0 0% 9%;
 
-    --primary: 237 83% 62%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 237 83% 72%;
-    --primary-dark: 237 83% 52%;
+    --primary-light: 217 91% 70%;
+    --primary-dark: 217 91% 50%;
 
-    --secondary: 214 32% 97%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 220 17% 95%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 199 89% 48%;
-    --accent-foreground: 0 0% 100%;
-    --accent-light: 199 89% 58%;
+    --accent: 210 100% 95%;
+    --accent-foreground: 217 91% 60%;
+    --accent-light: 210 100% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 237 83% 62%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 217 91% 60%;
 
-    --radius: 0.875rem;
+    --radius: 0.5rem;
 
-    --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 237 83% 62%;
+    --sidebar-background: 0 0% 9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 222 45% 16%;
+    --sidebar-accent: 0 0% 15%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 222 40% 20%;
-    --sidebar-ring: 237 83% 62%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 217 91% 60%;
 
-    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03);
-    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.03), 0 2px 4px -2px rgb(0 0 0 / 0.03);
-    --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.04), 0 4px 6px -4px rgb(0 0 0 / 0.04);
-    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
-    --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.08);
+    --nav-panel-background: 0 0% 97%;
+    --nav-panel-foreground: 0 0% 20%;
+    --nav-panel-hover: 0 0% 94%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(237 83% 62%) 0%, hsl(199 89% 48%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 17% 98%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 20% 99%) 100%);
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.02);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.06), 0 4px 6px -4px rgb(0 0 0 / 0.06);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.08);
+
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 91% 70%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 99%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 99.5%) 100%);
 
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
@@ -69,7 +73,7 @@ All colors MUST be HSL.
     --info: 199 89% 48%;
     --info-foreground: 0 0% 100%;
 
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -81,27 +85,32 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "cv11", "ss01";
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
   }
 }
 
 @layer utilities {
   .stat-card {
-    @apply relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-muted/30 p-6 shadow-md border border-border/50 transition-all duration-300 hover:shadow-xl hover:scale-[1.02];
+    @apply relative overflow-hidden rounded-lg bg-white p-6 border border-border transition-all duration-200 hover:shadow-md;
   }
 
   .glass-card {
-    @apply backdrop-blur-sm bg-white/80 border border-white/20 shadow-lg;
+    @apply backdrop-blur-sm bg-white/90 border border-border shadow-sm;
   }
 
   .nav-item-active {
-    @apply bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/20;
-  }
-
-  .badge-pulse {
-    @apply animate-pulse;
+    @apply bg-white text-foreground shadow-sm border-l-2 border-l-primary;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent;
+  }
+
+  .icon-sidebar-item {
+    @apply w-12 h-12 flex items-center justify-center rounded-lg text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-all duration-200;
+  }
+
+  .icon-sidebar-item-active {
+    @apply bg-sidebar-accent text-sidebar-foreground;
   }
 }
