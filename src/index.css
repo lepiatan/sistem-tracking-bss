@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 214 32% 97%;
+    --background: 216 28% 97%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -19,38 +19,46 @@ All colors MUST be HSL.
 
     --primary: 237 83% 62%;
     --primary-foreground: 0 0% 100%;
+    --primary-light: 237 83% 72%;
+    --primary-dark: 237 83% 52%;
 
     --secondary: 214 32% 97%;
     --secondary-foreground: 222 47% 11%;
 
-    --muted: 214 32% 97%;
+    --muted: 220 17% 95%;
     --muted-foreground: 215 16% 47%;
 
     --accent: 199 89% 48%;
     --accent-foreground: 0 0% 100%;
+    --accent-light: 199 89% 58%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
     --ring: 237 83% 62%;
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 47% 11%;
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 237 83% 62%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 214 32% 97%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 214 32% 91%;
+    --sidebar-accent: 222 45% 16%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 222 40% 20%;
     --sidebar-ring: 237 83% 62%;
 
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-    --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03);
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.03), 0 2px 4px -2px rgb(0 0 0 / 0.03);
+    --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.04), 0 4px 6px -4px rgb(0 0 0 / 0.04);
     --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+    --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.08);
+
+    --gradient-primary: linear-gradient(135deg, hsl(237 83% 62%) 0%, hsl(199 89% 48%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 17% 98%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 20% 99%) 100%);
 
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
@@ -60,6 +68,8 @@ All colors MUST be HSL.
     
     --info: 199 89% 48%;
     --info-foreground: 0 0% 100%;
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -69,6 +79,29 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+}
+
+@layer utilities {
+  .stat-card {
+    @apply relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-muted/30 p-6 shadow-md border border-border/50 transition-all duration-300 hover:shadow-xl hover:scale-[1.02];
+  }
+
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/80 border border-white/20 shadow-lg;
+  }
+
+  .nav-item-active {
+    @apply bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-primary/20;
+  }
+
+  .badge-pulse {
+    @apply animate-pulse;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
 }
